@@ -1,0 +1,9 @@
+.appContentWrapper {
+  width: 33%;
+  margin: 1rem;
+}
+
+button {
+  background-color: black;
+  color: white;
+}
