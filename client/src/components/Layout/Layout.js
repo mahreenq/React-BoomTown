@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 import Header from '../Header';
+import Footer from '../Footer';
 
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -24,6 +25,7 @@ const Layout = ({ children }) => (
         <div className="appContent">
             {children}
         </div>
+        <Footer />
         {/* And a footer here, but not on the login route... */}
     </div>
 );
