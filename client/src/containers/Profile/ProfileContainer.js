@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Items from './Items';
+import Profile from './Profile';
 
-class ItemsContainer extends Component {
+class ProfileContainer extends Component {
   constructor(props){
     super(props);
       this.state = {
@@ -42,7 +42,7 @@ class ItemsContainer extends Component {
       render(){
         const itemTitles = this.state.itemsData;
           return (
-            <Items  data={this.state.itemsData} />
+            <Profile  data={this.state.itemsData} />
           );
         }
 
@@ -50,9 +50,9 @@ class ItemsContainer extends Component {
 
 
 
-ItemsContainer.propTypes = {
+ProfileContainer.propTypes = {
 
 };
 
-export default ItemsContainer;
+export default ProfileContainer;
 //container

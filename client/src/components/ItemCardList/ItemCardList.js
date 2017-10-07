@@ -7,21 +7,17 @@ import './styles.css';
 
 import ItemCard from '../ItemCard';
 
-
-
 var Masonry = require('react-masonry-component');
 
 
 const ItemCardList = ({data}) => {
-return (
-  <Masonry className="my-gallery">
-        {data.map((item)=>{
-              return <ItemCard key={item.id} item={item}/>
-  })}
-  </Masonry>
-)
-
-
+      return (
+        <Masonry className="my-gallery">
+              {data.map((item)=>{
+                    return <ItemCard key={item.id} item={item}/>
+                  })}
+        </Masonry>
+      )
 }
 
 

@@ -9,10 +9,12 @@ import SvgIcon from 'material-ui/SvgIcon';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
+import logo from '../../images/boomtown-logo.svg';
+
 
 const Dropdown = (
   <div className="LeftNav">
-    <img className="boomlogo" src="../boomtown-logo.svg" />
+    <img className="boomlogo" src="../../images/boomtown-logo.svg" />
       <DropDownMenu >
         <MenuItem value={1} primaryText="Filter by Tag " />
       </DropDownMenu >

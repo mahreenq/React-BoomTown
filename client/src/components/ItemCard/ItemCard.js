@@ -8,50 +8,40 @@ import Gravatar from 'react-gravatar'
 
 
 
-
-
-
-
-
-
 const ItemCard= ({item }) => {
-
+  console.log(item);
   return (
  <div class ="singleItem">
 
     <Card>
+      <CardMedia
+        overlay= {item.available  ? null : <CardTitle title= "" subtitle= {`Lent to ${item.borrower}`} />}
+      >
+        <img src={item.imageurl} alt="" />
+      </CardMedia>
 
-    <CardMedia
-      overlay={<CardTitle title= "" subtitle={item.available ? null : `Lent to ${item.borrower} `}/>}
-    >
-      <img src={item.imageurl} alt="" />
-    </CardMedia>
+           <CardHeader
+             title={item.itemowner.fullname}
+             subtitle={item.created}
+             avatar= {<Gravatar email={item.itemowner.email} />}
+           />
 
-         <CardHeader
-           title={item.itemowner.fullname}
-           subtitle={item.created}
-           avatar= {<Gravatar email={item.itemowner.email} />}
-         />
+           <CardTitle title={item.title}
+           subtitle={item.tags.map((tag)=> {
+             return `${tag}, `
+           })
+         } />
 
+           <CardText>
+             {item.description}
+           </CardText>
 
-         <CardTitle title={item.title} subtitle={item.tags} />
+           <CardActions>
+            {item.available   ? <FlatButton label="Borrow" style={{backgroundColor:'#212121', color:'#FAFAFA'}} /> : null }
 
-
-         <CardText>
-           {item.description}
-         </CardText>
-
-
-         <CardActions>
-          {item.available ? <FlatButton label="Borrow" /> : null }
-
-         </CardActions>
-    </Card>
-
-
-
-
-</div>
+           </CardActions>
+      </Card>
+    </div>
 
 );
 }

@@ -4,7 +4,7 @@ import './style.css';
 import ItemCardList from '../../components/ItemCardList'
 
 
-const Items = ({data }) => {
+const Profile = ({data }) => {
 
   return (
       <div class="allItems">
@@ -14,10 +14,10 @@ const Items = ({data }) => {
     );
 }
 
-Items.propTypes = {
+Profile.propTypes = {
 
 }
 
-export default Items;
+export default Profile;
 
 //presentational
