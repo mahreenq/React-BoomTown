@@ -1,9 +1,9 @@
-.appContentWrapper {
-  width: 33%;
-  margin: 1rem;
-}
+.allItems{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 
-button {
-  background-color: black;
-  color: white;
+
+
+
 }
