@@ -3,9 +3,22 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
+import Header from '../Header';
+
+import AppBar from 'material-ui/AppBar';
+import RaisedButton from 'material-ui/RaisedButton';
+
+const style = {
+  margin: 12,
+  backgroundColor: '#212121',
+
+};
+
+
 const Layout = ({ children }) => (
     <div className="appContentWrapper">
         <div className="appHeader">
+        <Header />
             {/* Might want to put your header bar here... */}
         </div>
         <div className="appContent">

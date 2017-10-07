@@ -7,18 +7,22 @@ import './index.css';
 import muiTheme from './config/theme';
 
 import Layout from './components/Layout';
-import ItemCard from './components/ItemCard';
+
 import Login from './containers/Login';
 import Items from './containers/Items';
 
 
+
 const Boomtown = () => (
+  <div>
     <MuiThemeProvider muiTheme={muiTheme}>
         <Layout>
+
             <Items />
-          
+
         </Layout>
     </MuiThemeProvider>
+    </div>
 
 );
 

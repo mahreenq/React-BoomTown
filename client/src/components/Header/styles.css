@@ -1,0 +1,10 @@
+.boomlogo{
+  width: 20%;
+}
+
+.LeftNav{
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+
+}
