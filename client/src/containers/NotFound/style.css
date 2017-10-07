@@ -1,0 +1,9 @@
+.error{
+  height: 60vh;
+  text-align: center;
+  width: 100%;
+  padding-top: 7rem;
+}
+.errmsg{
+    font-size: 6rem;
+}

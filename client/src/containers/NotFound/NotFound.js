@@ -4,21 +4,21 @@ import './style.css';
 import ItemCardList from '../../components/ItemCardList'
 import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
 
-const Profile = ({data }) => {
+const NotFound = ({data }) => {
 
   return (
-      <div class="allItems"> 
-      <p><Link to = '/' >  HOME </Link></p>
-        <ItemCardList data={data}/>
+      <div className="error">
+        <p className="errmsg">404 ERROR</p>
+        <p><Link to = '/' >  HOME </Link></p>
       </div>
 
     );
 }
 
-Profile.propTypes = {
+NotFound.propTypes = {
 
 }
 
-export default Profile;
+export default NotFound;
 
 //presentational

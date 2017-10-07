@@ -6,6 +6,8 @@ import './styles.css';
 
 import Gravatar from 'react-gravatar'
 
+import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
+
 
 
 const ItemCard= ({item }) => {
@@ -20,11 +22,13 @@ const ItemCard= ({item }) => {
         <img src={item.imageurl} alt="" />
       </CardMedia>
 
-           <CardHeader
+          <Link to = {`/profile/${item.itemowner.id}`} >
+          <CardHeader
              title={item.itemowner.fullname}
              subtitle={item.created}
              avatar= {<Gravatar email={item.itemowner.email} />}
            />
+           </Link>
 
            <CardTitle title={item.title}
            subtitle={item.tags.map((tag)=> {
