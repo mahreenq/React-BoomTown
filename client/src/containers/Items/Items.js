@@ -7,7 +7,7 @@ import ItemCardList from '../../components/ItemCardList'
 const Items = ({data }) => {
 
   return (
-      <div class="allItems">
+      <div className="allItems">
         <ItemCardList data={data}/>
       </div>
 

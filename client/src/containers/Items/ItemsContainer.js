@@ -42,7 +42,9 @@ class ItemsContainer extends Component {
       render(){
         const itemTitles = this.state.itemsData;
           return (
+
             <Items  data={this.state.itemsData} />
+
           );
         }
 
