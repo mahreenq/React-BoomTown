@@ -14,7 +14,7 @@ import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-rout
 
 
 
-const ItemCard= ({item, users }) => {
+const ItemCard= ({item }) => {
 
   return (
  <div className ="singleItem">
@@ -36,11 +36,10 @@ const ItemCard= ({item, users }) => {
            />
            </Link>
 
-           <CardTitle title={item.title}
-           subtitle={item.tags.map((tag)=> {
-             return `${tag}, `
-           })
-         } />
+
+          <CardTitle title={item.title}
+           subtitle={ item.tags.map((tag,i) => { return  `${tag}${ item.tags.length - 1 === i ? '' : ', '}` } ) }
+          />
 
            <CardText>
              {item.description}

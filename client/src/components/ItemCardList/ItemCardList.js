@@ -6,11 +6,11 @@ import FlatButton from 'material-ui/FlatButton';
 import './styles.css';
 
 import ItemCard from '../ItemCard';
-
+import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
 var Masonry = require('react-masonry-component');
 
 
-const ItemCardList = ({data , users}) => {
+const ItemCardList = ({data }) => {
 
 
       return (
@@ -18,7 +18,7 @@ const ItemCardList = ({data , users}) => {
         <Masonry className="itemCardList">
               
               {data.map((item)=>{
-                    return <ItemCard key={item.id} item={item} users={users} />
+                    return <ItemCard key={item.id} item={item}  />
                   })}
             
                

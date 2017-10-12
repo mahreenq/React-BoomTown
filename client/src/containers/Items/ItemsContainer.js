@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Items from './Items';
+import Header from '../../components/Header'
 
 class ItemsContainer extends Component {
   constructor(props){
@@ -8,7 +9,7 @@ class ItemsContainer extends Component {
       this.state = {
             isLoading : false,
             itemsData : [],
-            users : [],
+
       };
   }
 
@@ -40,7 +41,7 @@ class ItemsContainer extends Component {
 
 
 
-                this.setState({itemsData:dataArray, isLoading: true, users:users});
+                this.setState({itemsData:dataArray, isLoading: true, });
 
           }).catch(function(err){
             console.log('error');
@@ -50,9 +51,10 @@ class ItemsContainer extends Component {
       render(){
         const itemTitles = this.state.itemsData;
           return (
-
-            <Items  data={this.state.itemsData} users={this.state.users} />
-
+            
+            <Items  data={this.state.itemsData}  />
+   
+            
           );
         }
 

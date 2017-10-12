@@ -17,20 +17,25 @@ var Masonry = require('react-masonry-component');
 
 const ProfileCard= ({data, profileItemsLength, itemsBorrowed }) => {
 
-
+    console.log (itemsBorrowed);
   return (
  <div className ="profileCard ">
 
           <Card style ={{width: '85%', padding:'2rem'}}>
+
           <div className="flex">
+              
               <div>
   <CardTitle title={ <span className ="cardName"> {data.fullname} </span> } />
           <CardTitle subtitle={data.bio}  />
           <CardTitle title= {profileItemsLength} subtitle="Items shared" />
           <CardTitle title={itemsBorrowed.length} subtitle="Items borrowed" />
               </div>
+
+
+
               <div>
-          <Gravatar email={data.email} size={150} />
+          <Gravatar email={data.email} size={170} />
               </div>
           </div>
 

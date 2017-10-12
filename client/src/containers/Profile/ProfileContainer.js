@@ -13,7 +13,7 @@ class ProfileContainer extends Component {
             isLoading : false,
             itemsData : [],
             itemsBorrowed: [],
-            users:[],
+
       };
       let USERID = this.props.match.params.USERID;
       //console.log(USERID);
@@ -43,10 +43,12 @@ class ProfileContainer extends Component {
 
               })
               
-              let itemsBorrowedFilter = dataArray.filter((item) => {
-                  return (
-                    USERID === item.borrower
-                  );
+              let itemsBorrowedFilter = items.filter((item) => {
+
+                   return ( 
+                    item.borrower == undefined ? null : item.borrower.id === USERID
+               
+                   );
               })
 
               
@@ -56,9 +58,9 @@ class ProfileContainer extends Component {
                 );
               })
 
-              let usersArray = users; 
+
     
-                this.setState({itemsData:filteredDataArray, isLoading: true, itemsBorrowed:itemsBorrowedFilter, users:usersArray});
+                this.setState({itemsData:filteredDataArray, isLoading: true, itemsBorrowed:itemsBorrowedFilter});
 
           }).catch(function(err){
             console.log('error');
@@ -69,12 +71,13 @@ class ProfileContainer extends Component {
         const itemTitles = this.state.itemsData;
         const dataLength = this.state.itemsData.length;
         const itemsBorrowed = this.state.itemsBorrowed;
-        const users = this.state.users;
+
 
 
           return (
 
-            itemTitles.length > 0   ? <Profile  data={itemTitles} profileItemsLength= {dataLength} itemsBorrowed = {itemsBorrowed} /> : null  
+            itemTitles.length > 0   ? <Profile  data={itemTitles} profileItemsLength= {dataLength} 
+            itemsBorrowed =  {itemsBorrowed}  /> : null  
 
             
             
