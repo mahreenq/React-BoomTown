@@ -17,7 +17,7 @@ import Share from './containers/Share';
 import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
 
 const Boomtown = () => (
-  <div>
+  <div className="indexboomtown">
     <MuiThemeProvider muiTheme={muiTheme}>
         <Layout>
               <BrowserRouter>

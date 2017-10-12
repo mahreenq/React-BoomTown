@@ -5,15 +5,18 @@ import Profile from './Profile';
 
 
 
+
 class ProfileContainer extends Component {
   constructor(props){
     super(props);
       this.state = {
             isLoading : false,
             itemsData : [],
+            itemsBorrowed: [],
+            users:[],
       };
       let USERID = this.props.match.params.USERID;
-      console.log(USERID);
+      //console.log(USERID);
   }
  
   componentDidMount(){
@@ -30,20 +33,32 @@ class ProfileContainer extends Component {
                 let USERID = this.props.match.params.USERID;
                 const [items,users] = data;
 
-
                 let dataArray = items.map(item =>{
-                const newitemowner = users.find( (user)=> item.itemowner === user.id)
-                item.itemowner = newitemowner;
+                  const newitemowner = users.find( (user)=> item.itemowner === user.id)
+                  const lentToProfile = users.find( (user) => item.borrower === user.id)
+                  item.itemowner = newitemowner;
+                  item.borrower = lentToProfile
+  
+                  return item;
 
-                return item;
-
-              }).filter((item) => {
-                return USERID === item.itemowner.id;
+              })
+              
+              let itemsBorrowedFilter = dataArray.filter((item) => {
+                  return (
+                    USERID === item.borrower
+                  );
               })
 
-
               
-                this.setState({itemsData:dataArray, isLoading: true});
+              let filteredDataArray = dataArray.filter((item) => {
+                return (
+                  USERID === item.itemowner.id
+                );
+              })
+
+              let usersArray = users; 
+    
+                this.setState({itemsData:filteredDataArray, isLoading: true, itemsBorrowed:itemsBorrowedFilter, users:usersArray});
 
           }).catch(function(err){
             console.log('error');
@@ -52,9 +67,16 @@ class ProfileContainer extends Component {
 
       render(){
         const itemTitles = this.state.itemsData;
+        const dataLength = this.state.itemsData.length;
+        const itemsBorrowed = this.state.itemsBorrowed;
+        const users = this.state.users;
+
+
           return (
+
+            itemTitles.length > 0   ? <Profile  data={itemTitles} profileItemsLength= {dataLength} itemsBorrowed = {itemsBorrowed} /> : null  
+
             
-            <Profile  data={this.state.itemsData} />
             
           );
         }

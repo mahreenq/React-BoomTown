@@ -8,6 +8,7 @@ class ItemsContainer extends Component {
       this.state = {
             isLoading : false,
             itemsData : [],
+            users : [],
       };
   }
 
@@ -24,15 +25,22 @@ class ItemsContainer extends Component {
         )).then(data => {
 
                 const [items,users] = data;
+                
+                // console.log(users);
+                // console.log(items);
 
                 let dataArray = items.map(item =>{
                 const newitemowner = users.find( (user)=> item.itemowner === user.id)
+                const lentToProfile = users.find( (user) => item.borrower === user.id)
                 item.itemowner = newitemowner;
+                item.borrower = lentToProfile
 
                 return item;
-
               })
-                this.setState({itemsData:dataArray, isLoading: true});
+
+
+
+                this.setState({itemsData:dataArray, isLoading: true, users:users});
 
           }).catch(function(err){
             console.log('error');
@@ -43,7 +51,7 @@ class ItemsContainer extends Component {
         const itemTitles = this.state.itemsData;
           return (
 
-            <Items  data={this.state.itemsData} />
+            <Items  data={this.state.itemsData} users={this.state.users} />
 
           );
         }

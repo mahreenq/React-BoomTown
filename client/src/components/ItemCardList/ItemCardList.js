@@ -10,13 +10,20 @@ import ItemCard from '../ItemCard';
 var Masonry = require('react-masonry-component');
 
 
-const ItemCardList = ({data}) => {
+const ItemCardList = ({data , users}) => {
+
+
       return (
-        <Masonry className="my-gallery">
+         
+        <Masonry className="itemCardList">
+              
               {data.map((item)=>{
-                    return <ItemCard key={item.id} item={item}/>
+                    return <ItemCard key={item.id} item={item} users={users} />
                   })}
+            
+               
         </Masonry>
+       
       )
 }
 

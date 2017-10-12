@@ -14,21 +14,20 @@ import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-rout
 
 
 
-const ItemCard= ({item }) => {
-  console.log(item);
+const ItemCard= ({item, users }) => {
+
   return (
  <div className ="singleItem">
+   
 
     <Card>
       <CardMedia
-        overlay= {item.available  ? null : <CardTitle title= "" subtitle= {`Lent to ${item.borrower} `} />}
+        overlay= {item.available  ? null : <CardTitle title= "" subtitle= {`Lent to ${item.borrower.fullname} `} />}
       >
         <img src={item.imageurl} alt="" />
       </CardMedia>
 
           <Link to = {`/profile/${item.itemowner.id}`} >
-
-          
           
           <CardHeader
              title={item.itemowner.fullname}

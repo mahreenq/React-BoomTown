@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 import AppBar from 'material-ui/AppBar';
+//import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+
 import RaisedButton from 'material-ui/RaisedButton';
 
 import SvgIcon from 'material-ui/SvgIcon';
@@ -14,7 +16,7 @@ import logo from '../../images/boomtown-logo.svg';
 
 const Dropdown = (
   <div className="LeftNav">
-    <img className="boomlogo" src="../../images/boomtown-logo.svg" />
+    <img className="boomlogo" src={logo} />
       <DropDownMenu >
         <MenuItem value={1} primaryText="Filter by Tag " />
       </DropDownMenu >
@@ -40,7 +42,7 @@ const Header= () => {
        style = {{
          backgroundColor:'#FAFAFA',
        }}
-       iconClassNameRight="muidocs-icon-navigation-expand-more"
+   
        iconElementRight = {RightButtons}
        iconElementLeft = {Dropdown}
 
