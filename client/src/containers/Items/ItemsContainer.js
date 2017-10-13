@@ -1,70 +1,42 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Items from './Items';
-import Header from '../../components/Header'
+import Header from '../../components/Header';
+import Loader from '../../components/Loader';
+import {connect} from 'react-redux';
+import {fetchItemsAndUsers} from '../../redux/modules/items'
+//import Loader from '../../components/Loader';
 
 class ItemsContainer extends Component {
-  constructor(props){
-    super(props);
-      this.state = {
-            isLoading : false,
-            itemsData : [],
-
-      };
-  }
 
   componentDidMount(){
 
-        let itemsjson = 'http://localhost:3001/items';
-        let usersjson = 'http://localhost:3001/users';
-        let urls = [itemsjson, usersjson];
+    this.props.dispatch(fetchItemsAndUsers());
+  }
 
-    this.setState({isLoading:true});
-
-    Promise.all(
-      urls.map(url =>fetch(url).then(resp => resp.json())
-        )).then(data => {
-
-                const [items,users] = data;
-                
-                // console.log(users);
-                // console.log(items);
-
-                let dataArray = items.map(item =>{
-                const newitemowner = users.find( (user)=> item.itemowner === user.id)
-                const lentToProfile = users.find( (user) => item.borrower === user.id)
-                item.itemowner = newitemowner;
-                item.borrower = lentToProfile
-
-                return item;
-              })
-
-
-
-                this.setState({itemsData:dataArray, isLoading: true, });
-
-          }).catch(function(err){
-            console.log('error');
-          })
-    }
-
-      render(){
-        const itemTitles = this.state.itemsData;
-          return (
-            
-            <Items  data={this.state.itemsData}  />
-   
-            
+      render() {
+       const loading = this.props.isLoading;
+        //console.log(this.state.itemsData);
+          return ( 
+          
+             loading ? <Loader/> : <Items  data={this.props.itemsData}  />
+            //this.state.itemsData.length > 0 ?<Items  data={this.state.itemsData} /> : null
           );
+  
         }
-
-    }
-
+    
+  }
 
 
 ItemsContainer.propTypes = {
 
 };
 
-export default ItemsContainer;
+const mapStateToProps = state => ({
+  isLoading: state.items.isLoading,
+  itemsData: state.items.itemsData,
+  itemFilters: state.items.itemFilters
+})
+
+export default connect(mapStateToProps)(ItemsContainer);
 //container

@@ -8,6 +8,9 @@ import muiTheme from './config/theme';
 
 import Layout from './components/Layout';
 
+import { Provider } from 'react-redux'
+import store from './redux/store';
+
 import Login from './containers/Login';
 import Items from './containers/Items';
 import NotFound from './containers/NotFound';
@@ -19,21 +22,22 @@ import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-rout
 const Boomtown = () => (
   <div className="indexboomtown">
     <MuiThemeProvider muiTheme={muiTheme}>
-        <Layout>
-              <BrowserRouter>
+        <Provider store = {store}>
+                <Layout>
+                    <BrowserRouter>
+                        <Switch>
+                        <Route exact path="/" component={Items} />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/share" component={Share} />
+                        <Route path="/profile/:USERID"  component={Profile} />
+                        <Route component={NotFound} />
+                            <Items />
+                        </Switch>
 
-                  <Switch>
-                  <Route exact path="/" component={Items} />
-                  <Route exact path="/login" component={Login} />
-                  <Route exact path="/share" component={Share} />
-                  <Route path="/profile/:USERID"  component={Profile} />
-                  <Route component={NotFound} />
-                    <Items />
-                  </Switch>
+                    </BrowserRouter>
 
-              </BrowserRouter>
-
-        </Layout>
+                </Layout>
+        </Provider>
     </MuiThemeProvider>
     </div>
 
