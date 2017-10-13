@@ -28,13 +28,18 @@ const ProfileCard= ({data, profileItemsLength, itemsBorrowed }) => {
               <div>
   <CardTitle title={ <span className ="cardName"> {data.fullname} </span> } />
           <CardTitle subtitle={data.bio}  />
+
+          </div>
+          <div className="gravItems">
+              <div>
           <CardTitle title= {profileItemsLength} subtitle="Items shared" />
           <CardTitle title={itemsBorrowed.length} subtitle="Items borrowed" />
-              </div>
+          </div>
+            
 
 
 
-              <div>
+             
           <Gravatar email={data.email} size={170} />
               </div>
           </div>

@@ -46,8 +46,7 @@ class ProfileContainer extends Component {
               let itemsBorrowedFilter = items.filter((item) => {
 
                    return ( 
-                    item.borrower == undefined ? null : item.borrower.id === USERID
-               
+                    item.borrower == undefined ? null : item.borrower.id === USERID               
                    );
               })
 

@@ -5,11 +5,9 @@
     padding: 1rem;
 }
 
-.flex{
+.gravItems{
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-
+    justify-content: space-between;
 }
 
 .cardName{
@@ -18,4 +16,20 @@
 
 .profileCard img {
     border-radius: 80px;
+}
+
+
+@media only screen  /*Desktop*/
+and (min-width:1000px )
+ {
+    .gravItems{
+        display: flex;
+    }
+    .flex{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    
+    }
+
 }
