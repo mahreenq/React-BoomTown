@@ -50,7 +50,7 @@ const RightButtons = (
 const Header= () => {
 
   return (
-    <div>
+ 
        <AppBar
        title=""
        style = {{
@@ -64,7 +64,7 @@ const Header= () => {
 
 
 
-      </div>
+
 
 );
 }

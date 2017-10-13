@@ -23,6 +23,7 @@ const ItemCardList = ({data }) => {
             
                
         </Masonry>
+        
        
       )
 }

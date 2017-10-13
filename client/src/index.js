@@ -32,7 +32,7 @@ const Boomtown = () => (
                   </Switch>
 
               </BrowserRouter>
-+
+
         </Layout>
     </MuiThemeProvider>
     </div>
