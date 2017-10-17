@@ -9,8 +9,10 @@ import CircularProgress from 'material-ui/CircularProgress';
 const Loader= () => {
 
   return (
+
     <div className = "loader">
     <CircularProgress size={80} thickness={5} />
+
     </div>
 
 );

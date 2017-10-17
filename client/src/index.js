@@ -17,7 +17,8 @@ import NotFound from './containers/NotFound';
 import Profile from './containers/Profile';
 import Share from './containers/Share';
 
-import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
+import {BrowserRouter, Route, Switch } from 'react-router-dom';
+//import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
 
 const Boomtown = () => (
   <div className="indexboomtown">

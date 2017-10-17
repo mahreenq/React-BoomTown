@@ -51,7 +51,7 @@ Promise.all(
   //REDUCERS
 
 
-  export default (state = { isLoading : false, itemsData : [], error:''}, action) => {
+  export default (state = { isLoading : false, itemsData : [], itemsBorrowed : [],  error:''}, action) => {
       switch(action.type){
 
         case GET_ITEMS:

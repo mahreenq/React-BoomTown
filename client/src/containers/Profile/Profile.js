@@ -6,14 +6,16 @@ import ProfileCard from '../../components/ProfileCard'
 
 import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
 
-const Profile = ({data , profileItemsLength, itemsBorrowed }) => {
-
+const Profile = ({data ,  borrowed }) => {
+    //console.log(data);
   return (
       <div className="profile"> 
       {<p><Link to = '/' >  HOME </Link></p>}
 
-         {<ProfileCard profileItemsLength= {profileItemsLength} data = {data[0].itemowner} itemsBorrowed = {itemsBorrowed}/>} 
-        <ItemCardList data = {data}/>
+         {<ProfileCard data = {data} borrowed = {borrowed}/>  }
+         {<ItemCardList data = {data} />}
+
+
         
       </div>
 
@@ -25,5 +27,3 @@ Profile.propTypes = {
 }
 
 export default Profile;
-
-//presentational

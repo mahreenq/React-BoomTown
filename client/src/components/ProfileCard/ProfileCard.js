@@ -15,9 +15,11 @@ import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-rout
 var Masonry = require('react-masonry-component');
 
 
-const ProfileCard= ({data, profileItemsLength, itemsBorrowed }) => {
+const ProfileCard= ({data,  borrowed }) => {
 
-    console.log (itemsBorrowed);
+  //console.log (data);
+   let itemowner = data[0].itemowner;
+  // console.log(itemowner);
   return (
  <div className ="profileCard ">
 
@@ -26,21 +28,21 @@ const ProfileCard= ({data, profileItemsLength, itemsBorrowed }) => {
           <div className="flex">
               
               <div>
-  <CardTitle title={ <span className ="cardName"> {data.fullname} </span> } />
-          <CardTitle subtitle={data.bio}  />
+  <CardTitle title={ <span className ="cardName"> {itemowner.fullname} </span> } />
+          <CardTitle subtitle={itemowner.bio}  />
 
           </div>
           <div className="gravItems">
               <div>
-          <CardTitle title= {profileItemsLength} subtitle="Items shared" />
-          <CardTitle title={itemsBorrowed.length} subtitle="Items borrowed" />
+          <CardTitle title= {data.length} subtitle="Items shared" />
+    
+          {<CardTitle title={borrowed.length} subtitle="Items borrowed" />}
           </div>
             
 
 
-
              
-          <Gravatar email={data.email} size={170} />
+          <Gravatar email={itemowner.email} size={170} />
               </div>
           </div>
 

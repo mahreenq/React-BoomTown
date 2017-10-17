@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Items from './Items';
+
 import Header from '../../components/Header';
 import Loader from '../../components/Loader';
 import {connect} from 'react-redux';
 import {fetchItemsAndUsers} from '../../redux/modules/items'
-//import Loader from '../../components/Loader';
+
 
 class ItemsContainer extends Component {
 

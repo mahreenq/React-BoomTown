@@ -6,14 +6,8 @@ import './styles.css';
 import Header from '../Header';
 import Footer from '../Footer';
 
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
 
-const style = {
-  margin: 12,
-  backgroundColor: '#212121',
 
-};
 
 
 const Layout = ({ children }) => (
