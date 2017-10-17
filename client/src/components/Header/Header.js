@@ -5,6 +5,8 @@ import './styles.css';
 import {BrowserRouter, Route, Switch, Link, Redirect, NavLink } from 'react-router-dom';
 
 import AppBar from 'material-ui/AppBar';
+import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+
 
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -15,8 +17,18 @@ import MenuItem from 'material-ui/MenuItem';
 import logo from '../../images/boomtown-logo.svg';
 
 
-const Dropdown = (
-  <div className="LeftNav">
+
+const Header= () => {
+
+  return (
+      <Toolbar title=""
+      style = {{
+        backgroundColor:'#FAFAFA',
+      }}>
+ 
+
+
+ <div className="LeftNav">
     {/* <Link to = '/' >  <img className="boomlogo" src={logo} /> </Link> */}
     
      <img className="boomlogo" src={logo} /> 
@@ -36,33 +48,12 @@ const Dropdown = (
       </SelectField >
 
   </div>
-)
-
-
-const RightButtons = (
-  <div className="navButtons">
+ <div className="navButtons">
     <RaisedButton label="MY PROFILE" primary={true} style={{margin:12,}} />
     <RaisedButton label="LOGOUT" secondary={true} style={{margin:12,}} />
   </div>
-)
 
-
-const Header= () => {
-
-  return (
- 
-       <AppBar
-       title=""
-       style = {{
-         backgroundColor:'#FAFAFA',
-       }}
-   
-       iconElementRight = {RightButtons}
-       iconElementLeft = {Dropdown}
-
-       />
-
-
+    </Toolbar>
 
 
 

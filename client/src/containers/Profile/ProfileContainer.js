@@ -6,14 +6,15 @@ import Profile from './Profile';
 import Header from '../../components/Header';
 import Loader from '../../components/Loader';
 import {connect} from 'react-redux';
-import {fetchProfItemsAndUsers} from '../../redux/modules/profile'
+//mport {fetchProfItemsAndUsers} from '../../redux/modules/profile'
+import {fetchItemsAndUsers} from '../../redux/modules/items'
 
 class ProfileContainer extends Component {
 
   
     componentDidMount(){
   
-      this.props.dispatch(fetchProfItemsAndUsers());
+      this.props.dispatch(fetchItemsAndUsers());
 
     }
   
@@ -21,7 +22,7 @@ class ProfileContainer extends Component {
          const loading = this.props.isLoading;
          let data =  this.props.itemsData;
           let USERID = this.props.match.params.USERID;
-          //console.log(USERID);
+ 
 
          let filteredDataArray = data.filter((item) => {
            return (
