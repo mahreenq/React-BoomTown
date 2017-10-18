@@ -7,25 +7,23 @@ import Loader from '../../components/Loader';
 import {connect} from 'react-redux';
 import {fetchItemsAndUsers} from '../../redux/modules/items'
 
+import * as actions from '../../redux/modules/items';
+
 
 class ItemsContainer extends Component {
 
   componentDidMount(){
-
-    this.props.dispatch(fetchItemsAndUsers());
-  }
-
+    this.props.fetchItemsAndUsers();
+}
       render() {
        const loading = this.props.isLoading;
-        //console.log(this.state.itemsData);
+      
           return ( 
           
              loading ? <Loader/> : <Items  data={this.props.itemsData}  />
             //this.state.itemsData.length > 0 ?<Items  data={this.state.itemsData} /> : null
           );
-  
-        }
-    
+       }
   }
 
 
@@ -39,5 +37,5 @@ const mapStateToProps = state => ({
   itemFilters: state.items.itemFilters
 })
 
-export default connect(mapStateToProps)(ItemsContainer);
+export default connect(mapStateToProps , actions)(ItemsContainer);
 //container

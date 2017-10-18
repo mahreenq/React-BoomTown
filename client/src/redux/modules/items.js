@@ -3,23 +3,30 @@
 const GET_ITEMS = 'GET_ITEMS';
 const GET_ITEMS_LOADING = 'GET_ITEMS_LOADING';
 const GET_ITEMS_ERROR = 'GET_ITEMS_ERROR';
+const HANDLE_DROP_DOWN = 'HANDLE_DROP_DOWN';
 
 
 //ACTION CREATORS
-export const getItems = (items) => ({ //ACTION OBJECT
+const getItems = (items) => ({ //ACTION OBJECT
     type: GET_ITEMS,
     payload: items    //payload is the 21 items
   });
 
-  export const getItemsLoading= () => ({ //ACTION OBJECT
+const getItemsLoading= () => ({ //ACTION OBJECT
     type: GET_ITEMS_LOADING
   });
 
-  export const getItemsError = (error) => ({ //ACTION OBJECT
+const getItemsError = (error) => ({ //ACTION OBJECT
     type: GET_ITEMS_ERROR,
     payload: error
   });
 
+
+  export const handleDropDown = (tagData) => {
+    return function(dispatch) {
+        dispatch({type: HANDLE_DROP_DOWN, payload:tagData});
+    }
+ }
 
   export const fetchItemsAndUsers = () => dispatch => { //HELPER FN
     dispatch(getItemsLoading());
@@ -33,16 +40,38 @@ Promise.all(
     )).then(data => {
 
             const [items,users] = data;
+            // let tags = [];
+            // console.log(tags);
 
             let dataArray = items.map(item =>{
                 const newitemowner = users.find( (user)=> item.itemowner === user.id)
                 const lentToProfile = users.find( (user) => item.borrower === user.id)
             item.itemowner = newitemowner;
             item.borrower = lentToProfile
+
+            // item.tags.map((tag) => {
+            //     if (tags.indexOf(tag) === -1) {
+            //         tags.push(tag)
+            //     }
+            //     //console.log(tag);
+            //     return tag;
+
+            //     var tagArr = tag.map(function(item){ return item.name });
+            //     var isDuplicate = tagArr.some(function(item, idx){ 
+            //         return tagArr.indexOf(item) != idx 
+
+                    
+            //     });
+            //     console.log(isDuplicate);
+            // });
+
+
                 
             return item;
          });
-         dispatch(getItems(dataArray));
+         dispatch(getItems(dataArray ));
+
+         
      })
     .catch(err => {
          dispatch(getItemsError(err));
@@ -51,15 +80,22 @@ Promise.all(
   //REDUCERS
 
 
-  export default (state = { isLoading : false, itemsData : [], itemsBorrowed : [],  error:''}, action) => {
+  export default (state = 
+                        {   isLoading : false, 
+                            itemsData : [],  
+                            tagValue:[],  
+                            error:''}, 
+                    action) => {
       switch(action.type){
 
         case GET_ITEMS:
-            return {...state, itemsData: action.payload, isLoading: false, error:""};
+            return {...state, itemsData: action.payload, isLoading: false, error:''};
          
         case GET_ITEMS_LOADING:
             return {...state, isLoading:true, error:''};
-
+        
+        case HANDLE_DROP_DOWN: 
+            return {...state , tagValue: action.payload, error: '' };
         
         case GET_ITEMS_ERROR:
             return {...state, isLoading:false, error:action.payload};

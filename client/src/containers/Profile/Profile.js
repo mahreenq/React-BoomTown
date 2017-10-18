@@ -10,7 +10,7 @@ const Profile = ({data ,  borrowed }) => {
     //console.log(data);
   return (
       <div className="profile"> 
-      {<p><Link to = '/' >  HOME </Link></p>}
+      
 
          {<ProfileCard data = {data} borrowed = {borrowed}/>  }
          {<ItemCardList data = {data} />}
