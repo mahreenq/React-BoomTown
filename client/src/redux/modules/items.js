@@ -28,7 +28,7 @@ const getItemsError = (error) => ({ //ACTION OBJECT
     }
  }
 
-  export const fetchItemsAndUsers = () => dispatch => { //HELPER FN
+  export const fetchItemsAndUsers = () => dispatch => { //HELPER FN (IMPLICIT)
     dispatch(getItemsLoading());
 
     let itemsjson = 'http://localhost:3001/items';
@@ -70,6 +70,7 @@ Promise.all(
             return item;
          });
          dispatch(getItems(dataArray ));
+         
 
          
      })

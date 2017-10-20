@@ -14,6 +14,7 @@ class ItemsContainer extends Component {
 
   componentDidMount(){
     this.props.fetchItemsAndUsers();
+    //this.props.handleDropDown(tagData);
 }
       render() {
        const loading = this.props.isLoading;
@@ -39,3 +40,4 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps , actions)(ItemsContainer);
 //container
+//allows us to take all actions and bind to the container
